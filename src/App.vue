@@ -1,29 +1,30 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import axios from "axios";
+export default {
+  name: "App",
+  data() {
+    return {};
+  },
+  created() {
+    this.getProjects();
+  },
+
+  methods: {
+    getProjects() {
+      axios.get("http://127.0.0.1:8000/api/projects").then((resp) => {
+        this.projects = resp.data.results;
+      });
+    },
+  },
+};
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="container bd-light mt-3">
+    <h2>Ritorno al Vue!!</h2>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+<style lang="scss">
+@use "./styles/general.scss" as *;
 </style>
