@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 import axios from "axios";
 export default {
   name: "App",
@@ -23,6 +23,26 @@ export default {
   <div class="container bd-light mt-3">
     <h2>Ritorno al Vue!!</h2>
   </div>
+</template>
+
+<style lang="scss">
+@use "./styles/general.scss" as *;
+</style> -->
+
+<script>
+import AppHeader from "./components/AppHeader.vue";
+
+export default {
+  name: "App",
+  components: {
+    AppHeader,
+  },
+};
+</script>
+<template>
+  <AppHeader />
+
+  <router-view> </router-view>
 </template>
 
 <style lang="scss">
